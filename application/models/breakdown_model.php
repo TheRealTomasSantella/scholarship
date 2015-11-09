@@ -1,0 +1,138 @@
+<?php
+if(!defined('BASEPATH'))exit('No direct script allowed');
+
+class breakdown_model extends CI_Model{
+	public function __construct(){
+		parent::__construct();
+	}
+	public function insert_data($scholar, $user){
+		$data = array(
+			'stipend' => $this->input->post('sixAmount1'),
+			'tuitionFee' => $this->input->post('sixAmount2'),
+			'bookAllowance' => $this->input->post('sixAmount3'),
+			'uniformAllowance' => $this->input->post('sixAmount4'),
+			'transpoAllowance' => $this->input->post('sixAmount5'),
+			'soep' => $this->input->post('sixAmount6'),
+			'sptpAllowance' => $this->input->post('sixAmount7'),
+			'scholarID' => $user,
+			'user_name' => $scholar,
+			'first_year' => $this->input->post('year1'),
+			'second_year' => $this->input->post('year2'),
+			'third_year' => $this->input->post('year3'),
+			'fourth_year' => $this->input->post('year4'),
+			'fifth_year' => $this->input->post('year5'),
+			'stipend1' => $this->input->post('fAmount1'),
+			'stipend2' => $this->input->post('sAmount1'),
+			'stipend3' => $this->input->post('tAmount1'),
+			'stipend4' => $this->input->post('forAmount1'),
+			'stipend5' => $this->input->post('fivAmount1'),
+			'tuition_fee1' => $this->input->post('fAmount2'),
+			'tuition_fee2' => $this->input->post('sAmount2'),
+			'tuition_fee3' => $this->input->post('tAmount2'),
+			'tuition_fee4' => $this->input->post('forAmount2'),
+			'tuition_fee5' => $this->input->post('fivAmount2'),
+			'book1' => $this->input->post('fAmount3'),
+			'book2' => $this->input->post('sAmount3'),
+			'book3' => $this->input->post('tAmount3'),
+			'book4' => $this->input->post('forAmount3'),
+			'book5' => $this->input->post('fivAmount3'),
+			'uniform1' => $this->input->post('fAmount4'),
+			'uniform2' => $this->input->post('sAmount4'),
+			'uniform3' => $this->input->post('tAmount4'),
+			'uniform4' => $this->input->post('forAmount4'),
+			'uniform5' => $this->input->post('fivAmount4'),
+			'transpo1' => $this->input->post('fAmount5'),
+			'transpo2' => $this->input->post('sAmount5'),
+			'transpo3' => $this->input->post('tAmount5'),
+			'transpo4' => $this->input->post('forAmount5'),
+			'transpo5' => $this->input->post('fivAmount5'),
+			'soep1' => $this->input->post('fAmount6'),
+			'soep2' => $this->input->post('sAmount6'),
+			'soep3' => $this->input->post('tAmount6'),
+			'soep4' => $this->input->post('forAmount6'),
+			'soep5' => $this->input->post('fivAmount6'),
+			'sptp1' => $this->input->post('fAmount7'),
+			'sptp2' => $this->input->post('sAmount7'),
+			'sptp3' => $this->input->post('tAmount7'),
+			'sptp4' => $this->input->post('forAmount7'),
+			'sptp5' => $this->input->post('fivAmount7'),
+			'first_total' => $this->input->post('fAmount8'),
+			'second_total' => $this->input->post('sAmount8'),
+			'third_total' => $this->input->post('tAmount8'),
+			'fourth_total' => $this->input->post('forAmount8'),
+			'fifth_total' => $this->input->post('fivAmount8'),
+			'sub_total' => $this->input->post('sixAmount8'),
+			'interest' => $this->input->post('interest'),
+			'grandTotal' => $this->input->post('grandTotal')
+
+		);
+		$this->db->insert('breakdown',$data);
+	}
+	public function getBreakdownByID($id){
+		$this->db->where('scholarID', $id);
+		return $this->db->get('breakdown')->row_array();
+	}
+	public function update_data($scholar, $user){
+		$data = array(
+			'stipend' => $this->input->post('sixAmount1'),
+			'tuitionFee' => $this->input->post('sixAmount2'),
+			'bookAllowance' => $this->input->post('sixAmount3'),
+			'uniformAllowance' => $this->input->post('sixAmount4'),
+			'transpoAllowance' => $this->input->post('sixAmount5'),
+			'soep' => $this->input->post('sixAmount6'),
+			'sptpAllowance' => $this->input->post('sixAmount7'),
+			'scholarID' => $scholar,
+			'user_name' => $user,
+			'first_year' => $this->input->post('year1'),
+			'second_year' => $this->input->post('year2'),
+			'third_year' => $this->input->post('year3'),
+			'fourth_year' => $this->input->post('year4'),
+			'fifth_year' => $this->input->post('year5'),
+			'stipend1' => $this->input->post('fAmount1'),
+			'stipend2' => $this->input->post('sAmount1'),
+			'stipend3' => $this->input->post('tAmount1'),
+			'stipend4' => $this->input->post('forAmount1'),
+			'stipend5' => $this->input->post('fivAmount1'),
+			'tuition_fee1' => $this->input->post('fAmount2'),
+			'tuition_fee2' => $this->input->post('sAmount2'),
+			'tuition_fee3' => $this->input->post('tAmount2'),
+			'tuition_fee4' => $this->input->post('forAmount2'),
+			'tuition_fee5' => $this->input->post('fivAmount2'),
+			'book1' => $this->input->post('fAmount3'),
+			'book2' => $this->input->post('sAmount3'),
+			'book3' => $this->input->post('tAmount3'),
+			'book4' => $this->input->post('forAmount3'),
+			'book5' => $this->input->post('fivAmount3'),
+			'uniform1' => $this->input->post('fAmount4'),
+			'uniform2' => $this->input->post('sAmount4'),
+			'uniform3' => $this->input->post('tAmount4'),
+			'uniform4' => $this->input->post('forAmount4'),
+			'uniform5' => $this->input->post('fivAmount4'),
+			'transpo1' => $this->input->post('fAmount5'),
+			'transpo2' => $this->input->post('sAmount5'),
+			'transpo3' => $this->input->post('tAmount5'),
+			'transpo4' => $this->input->post('forAmount5'),
+			'transpo5' => $this->input->post('fivAmount5'),
+			'soep1' => $this->input->post('fAmount6'),
+			'soep2' => $this->input->post('sAmount6'),
+			'soep3' => $this->input->post('tAmount6'),
+			'soep4' => $this->input->post('forAmount6'),
+			'soep5' => $this->input->post('fivAmount6'),
+			'sptp1' => $this->input->post('fAmount7'),
+			'sptp2' => $this->input->post('sAmount7'),
+			'sptp3' => $this->input->post('tAmount7'),
+			'sptp4' => $this->input->post('forAmount7'),
+			'sptp5' => $this->input->post('fivAmount7'),
+			'first_total' => $this->input->post('fAmount8'),
+			'second_total' => $this->input->post('sAmount8'),
+			'third_total' => $this->input->post('tAmount8'),
+			'fourth_total' => $this->input->post('forAmount8'),
+			'fifth_total' => $this->input->post('fivAmount8'),
+			'sub_total' => $this->input->post('sixAmount8'),
+			'interest' => $this->input->post('interest'),
+			'grandTotal' => $this->input->post('grandTotal')
+		);
+		$this->db->where('scholarID', $scholar['scholarID']);
+		$this->db->update('breakdown',$data);
+	}
+}
